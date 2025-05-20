@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        *{margin: 0;padding: 0; box-sizing: border-box;}
+      #pro_marquee {
+        width: 100%;
+        height: fit-content;
+        background-color: aqua;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .marquee {
+        --gap: 1rem;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: var(--gap);
+      }
+
+      .marquee__content {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        min-width: 100%;
+        gap: var(--gap);
+        animation: scroll 18s linear infinite;
+      }
+      .marquee_box {
+        width: 100%;
+        max-width: 200px;
+        padding: 20px 5px;
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .marquee_box::before {
+        content: "";
+        position: absolute;
+        left: -20px; /* Adjust based on arrow size */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 20px solid aliceblue; /* Match the background color of .marquee_box */
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(calc(-100% - var(--gap)));
+        }
+      }
+
+      .marquee2 {
+        --gap: 1rem;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: var(--gap);
+      }
+
+      .marquee__content2 {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        min-width: 100%;
+        gap: var(--gap);
+        animation: scroll-left 18s linear infinite;
+      }
+      .marquee_box2 {
+        width: 100%;
+        max-width: 200px;
+        padding: 20px 5px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: red;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: sans-serif;
+        letter-spacing: 3px;
+      }
+      .marquee_box2::before {
+        content: "";
+        position: absolute;
+        right: -20px; /* Adjust based on arrow size */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 30px 0 30px 20px;
+        border-color: transparent transparent transparent black;
+      }
+      .marquee_box2::after {
+        content: "";
+        position: absolute;
+        left: 0px; 
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 30px 0 30px 20px;
+        border-color: transparent transparent transparent aqua;
+      }
+
+      @keyframes scroll-left {
+        from {
+          transform: translateX(calc(-100% - var(--gap)));
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .fade {
+        position: absolute;
+        top: 0;
+        width: 200px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .fade-left {
+        left: 0;
+        background: linear-gradient(to right, aqua, rgba(0, 255, 255, 0));
+      }
+
+      .fade-right {
+        right: 0;
+        background: linear-gradient(to left, aqua, rgba(0, 255, 255, 0));
+      }
+    </style>
+  </head>
+  <body>
+    <section id="pro_marquee">
+      <div class="marquee">
+        <div class="marquee__content">
+          <div class="marquee_box"><span>Item 1</span></div>
+          <div class="marquee_box"><span>Item 2</span></div>
+          <div class="marquee_box"><span>Item 3</span></div>
+          <div class="marquee_box"><span>Item 4</span></div>
+          <div class="marquee_box"><span>Item 5</span></div>
+        </div>
+        <div class="marquee__content" aria-hidden="true">
+          <div class="marquee_box"><span>Item 1</span></div>
+          <div class="marquee_box"><span>Item 2</span></div>
+          <div class="marquee_box"><span>Item 3</span></div>
+          <div class="marquee_box"><span>Item 4</span></div>
+          <div class="marquee_box"><span>Item 5</span></div>
+        </div>
+        <div class="fade fade-left"></div>
+        <div class="fade fade-right"></div>
+      </div>
+    </section>
+    <section id="pro_marquee">
+      <div class="marquee2">
+        <div class="marquee__content2">
+          <div class="marquee_box2"><span>Item 1</span></div>
+          <div class="marquee_box2"><span>Item 2</span></div>
+          <div class="marquee_box2"><span>Item 3</span></div>
+          <div class="marquee_box2"><span>Item 4</span></div>
+          <div class="marquee_box2"><span>Item 5</span></div>
+        </div>
+        <div class="marquee__content2" aria-hidden="true">
+          <div class="marquee_box2"><span>Item 1</span></div>
+          <div class="marquee_box2"><span>Item 2</span></div>
+          <div class="marquee_box2"><span>Item 3</span></div>
+          <div class="marquee_box2"><span>Item 4</span></div>
+          <div class="marquee_box2"><span>Item 5</span></div>
+        </div>
+      </div>
+    </section>
+    <section id="pro_marquee">
+      <div class="marquee">
+        <div class="marquee__content">
+          <div class="marquee_box"><span>Item 1</span></div>
+          <div class="marquee_box"><span>Item 2</span></div>
+          <div class="marquee_box"><span>Item 3</span></div>
+          <div class="marquee_box"><span>Item 4</span></div>
+          <div class="marquee_box"><span>Item 5</span></div>
+        </div>
+        <div class="marquee__content" aria-hidden="true">
+          <div class="marquee_box"><span>Item 1</span></div>
+          <div class="marquee_box"><span>Item 2</span></div>
+          <div class="marquee_box"><span>Item 3</span></div>
+          <div class="marquee_box"><span>Item 4</span></div>
+          <div class="marquee_box"><span>Item 5</span></div>
+        </div>
+      </div>
+      <div class="fade fade-left"></div>
+      <div class="fade fade-right"></div>
+    </section>
+    <marquee behavior="scroll" direction="linear">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, in!</p>
+    </marquee>
+  </body>
+</html>
